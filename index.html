@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Focus Flow</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="img/favicon.png">
+</head>
+<body>
+    <div class="container">
+        <div id="motivational-quote" class="motivational-quote">
+            "Stay focused and never give up!"
+        </div>
+                
+        <button id="theme-toggle-btn" class="theme-btn">
+            <img src="img/theme_button_image.png" alt="Theme Selector" />
+        </button>
+        
+        <main>
+            <!-- Mod seçenekleri -->
+            <div class="timer-modes">
+                <button class="mode-btn active">Pomodoro</button>
+                <button class="mode-btn">Short Break</button>
+                <button class="mode-btn">Long Break</button>
+            </div>
+
+            <!-- Sayaç -->
+            <div class="time-display">
+                <h2 id="time">25:00</h2>
+            </div>
+
+            <!-- Butonlar -->
+            <div class="button-container">
+                <!-- Ses seçeneği butonu -->
+                <button id="sound-toggle-btn" class="sound-btn">
+                    <img src="img/sound_image.png" alt="Ses Seçeneği">
+                </button>
+
+                <!-- Ses menüsü -->
+                <div id="sound-menu" class="sound-menu">
+                    <div class="sound-option">
+                        <img src="img/sound_image.png" alt="rain" class="sound-image">
+                        <span>Rain</span>
+                    </div>
+                    <div class="sound-option">
+                        <img src="img/sound_image.png" alt="ocean" class="sound-image">
+                        <span>Ocean</span>
+                    </div>
+                    <div class="sound-option">
+                        <img src="img/sound_image.png" alt="cafe" class="sound-image">
+                        <span>Café</span>
+                    </div>
+                    <div class="sound-option">
+                        <img src="img/sound_image.png" alt="airplane" class="sound-image">
+                        <span>Airplane</span>
+                    </div>
+                    <div class="sound-option">
+                        <img src="img/sound_image.png" alt="fireplace" class="sound-image">
+                        <span>Fireplace</span>
+                    </div>
+                </div>
+
+                <!-- Ayarlar butonu -->
+                <button id="settings-toggle-btn" class="settings-btn">
+                    <img src="img/settings_image.png" alt="Settings">
+                </button>
+            </div>
+
+            <!-- Start,stop,reset butonları -->
+            <div class="button-container">
+                <button id="start-btn" class="start-btn">Start</button>
+                <button id="stop-btn" class="stop-btn">Stop</button>
+                <button id="reset-btn" class="reset-button">
+                    <img src="img/reset_button_image.png" alt="Reset" width="30" height="30">
+                </button>
+            </div>
+        </main>
+
+       <!-- Info butonu -->
+        <button id="info-toggle-btn" class="info-btn">
+            <img src="img/info_button_image.png" alt="Info">
+        </button>
+
+        <!-- Hakkında penceresi -->
+        <div id="info-menu" class="info-menu">
+            <h3>What is the Pomodoro Method?</h3>
+            <p>
+                The Pomodoro Method is a technique developed to manage time more efficiently. 
+                This method recommends dividing tasks into a cycle of 25 minutes of work followed by a short break.
+            </p>
+            <h4>How does it work?</h4>
+            <ol>
+                <li>Choose a task to do.</li>
+                <li>Set a timer for 25 minutes.</li>
+                <li>Focus on the task until the timer expires.</li>
+                <li>When the time is up, take a 5-minute break.</li>
+                <li>After 4 Pomodoro cycles, take a longer break (15-30 minutes).</li>
+            </ol>
+            <button id="close-info-btn" class="close-btn">Close</button>
+        </div>
+
+       <!-- Ayarlar menüsü -->
+        <div id="settings-menu" class="settings-menu">
+            <h3>Settings</h3>
+            <form>
+                <div class="mode-container">
+                    <label for="mode-select">Mode:</label>
+                    <select id="mode-select">
+                        <option value="Pomodoro">Pomodoro</option>
+                        <option value="Stopwatch">Stopwatch</option>
+                    </select>
+                </div>
+                <label for="pomodoro-length">Pomodoro:
+                    <input type="number" id="pomodoro-length" value="25" min="1"> min
+                </label>
+                <label for="short-break">Short Break:
+                    <input type="number" id="short-break" value="5" min="1"> min
+                </label>
+                <label for="long-break">Long Break:
+                    <input type="number" id="long-break" value="10" min="1"> min
+                </label>
+                <label for="auto-switch">Enable Auto Break Transition:
+                    <input type="checkbox" id="auto-switch">
+                </label>                
+                <!-- Ses seviyesi kontrolu -->
+                <label for="volume-control">Volume:</label>
+                <input type="range" id="volume-control" min="0" max="100" value="50">
+            </form>
+        </div>
+        
+        <!-- To-do list butonu -->
+        <button id="to-do-list-btn" class="to-do-list-btn">
+            <img src="img/to-do-list_button.png" alt="To-Do List">
+        </button>
+
+        <!-- To-do list penceresi -->
+        <div id="to-do-list-menu" class="to-do-list-menu">
+            <h3>To-Do List</h3>
+            <ul id="to-do-list">
+            </ul>
+            <input type="text" id="new-task-input" placeholder="Add a new task...">
+            <button id="add-task-btn">Add Task</button>
+            <button id="close-to-do-list-btn" class="close-btn">Close</button>
+        </div>
+
+        <!-- Profil butonu -->
+        <header>
+            <a href="http://localhost:8080/pomodoro_timer/login.php" id="profile-link">
+                <img src="img/profile_image.png" alt="Profile" id="profile-image">
+            </a>
+        </header>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,576 @@
+body {
+  background-color: #37b6af;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+/* Mod butonları */
+
+.timer-modes {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.mode-btn {
+  background-color: #d980ba;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 18px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mode-btn:hover {
+  background-color: #d45db4;
+  transform: scale(1.1);
+}
+
+.mode-btn.active {
+  background-color: #b65fcc;
+}
+
+/* Sayaç */
+
+.time-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  margin-top: 20px;
+}
+
+.time-display h2 {
+  font-size: 96px;
+  color: white;
+  margin: 0;
+}
+
+/* Ses butonları */
+
+.sound-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-right: 10px;
+}
+
+.sound-btn img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.sound-btn:hover img {
+  transform: scale(1.1);
+}
+
+/* Ses penceresi */
+
+.sound-menu {
+  display: none;
+  position: absolute;
+  left: 20px; 
+  top: 50px; 
+  background-color: rgb(221 101 63); 
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  z-index: 1000;
+}
+
+/* Ses seçenekleri */
+
+.sound-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.sound-option img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.sound-option:hover img {
+  transform: scale(1.2);
+}
+
+.sound-option span {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* Mode seçimi */
+
+.mode-container {
+  background-color: #f4a261;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Seçim kutusu */
+
+.mode-container select {
+  background-color: #2a9d8f;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.mode-container label {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* Ayarlar butonu */
+
+.settings-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.settings-btn img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.settings-btn:hover img {
+  transform: scale(1.1);
+}
+
+/* Ayarlar penceresi */
+
+.settings-menu {
+  display: none;
+  position: absolute;
+  right: 20px;
+  top: 50px;
+  background-color: rgba(221 101 63);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  z-index: 1000;
+}
+
+.settings-menu h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #ffff;
+}
+
+.settings-menu form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.settings-menu label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffff;
+}
+
+.settings-menu input {
+  background-color: #37b6af; 
+  border: none;
+  padding: 5px;
+  font-size: 14px;
+  color: #ffff;
+  width: 60px;
+  margin-left: 10px;
+}
+
+/* Butonlar */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Start,stop butonları */
+
+.start-btn, .stop-btn {
+  background-color: #e87dc3;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 18px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.start-btn:hover, .stop-btn:hover {
+  background-color: #d45db4;
+  transform: scale(1.1);
+}
+
+/* Reset butonu */
+
+.reset-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.reset-button img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease;
+}
+
+.reset-button:hover img {
+  transform: scale(1.2);
+}
+
+.reset-button:hover {
+  transform: rotate(90deg);
+}
+
+#volume-control {
+  width: 100%;
+  margin: 10px 0;
+  accent-color: #37b6af;
+}
+
+/* Info butonu */
+
+.info-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+}
+
+.info-btn img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.info-btn:hover img {
+  transform: scale(1.1);
+}
+
+/* Hakkında penceresi */
+
+.info-menu {
+  display: none;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  z-index: 1000;
+}
+
+.info-menu h3 {
+  margin-top: 0;
+  color: #37b6af;
+}
+
+.info-menu h4 {
+  color: #2a9d8f;
+}
+
+.info-menu p, .info-menu ol {
+  margin-bottom: 10px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.close-btn {
+  background-color: #e87dc3;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto 0;
+  font-size: 14px;
+}
+
+.close-btn:hover {
+  background-color: #d45db4;
+}
+
+/* Motivasyon metni */
+
+.motivational-quote {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #b65fcc; 
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  z-index: 1000;
+  display: none;
+  animation: fadeInOut 5s ease-in-out;
+}
+
+/* Fade In-Out animasyonu (motivasyon metninin görünüp kaybolması için ekledim)*/
+
+@keyframes fadeInOut {
+  0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-20px);
+  }
+  10% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+  90% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+  }
+  100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+#auto-switch {
+  margin-left: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* To-Do list butonu */
+
+.to-do-list-btn {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.to-do-list-btn img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.to-do-list-btn:hover img {
+  transform: scale(1.1);
+}
+
+/* To-Do list penceresi */
+
+.to-do-list-menu {
+  display: none;
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  z-index: 1000;
+}
+
+.to-do-list-menu h3 {
+  margin-top: 0;
+  color: #37b6af;
+  text-align: center;
+}
+
+.to-do-list-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.to-do-list-menu ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.to-do-list-menu ul li input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+#new-task-input {
+  width: calc(100% - 90px);
+  padding: 5px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#add-task-btn {
+  background-color: #37b6af;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#add-task-btn:hover {
+  background-color: #2a9d8f;
+}
+
+.close-btn {
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  background-color: #e87dc3;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color: #d45db4;
+}
+
+
+/* Açık tema */
+
+body.light-theme {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.light-theme .mode-btn {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+.light-theme .start-btn,
+.light-theme .stop-btn {
+  background-color: #8fbc8f;
+}
+
+.light-theme .time-display h2 {
+  color: #4a90e2;
+}
+
+/* Koyu tema */
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.dark-theme .mode-btn {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dark-theme .start-btn,
+.dark-theme .stop-btn {
+  background-color: #555555;
+}
+
+/* Tema seçme butonu */
+
+.theme-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.theme-btn img {
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.theme-btn:hover img {
+  transform: scale(1.1);
+}
+
+/* Profil butonu */
+
+header {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+#profile-link img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#profile-link img:hover {
+  transform: scale(1.1);
+}
